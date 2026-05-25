@@ -114,7 +114,7 @@ exports.addPatientDetails = async (req, res) => {
     }
 
     // ✅ FIXED QR URL
-    const qrUrl = `http://10.55.27.22:5000/api/auth/qr/${qrId}`;
+    const qrUrl = `https://emergency-qr-backend.onrender.com/api/auth/qr/${qrId}`;
     const qrData = await QRCode.toDataURL(qrUrl);
 
     res.json({
