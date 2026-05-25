@@ -51,8 +51,7 @@ if (!process.env.MONGO_URI) {
   process.exit(1);
 }
 
-mongoose
-  .connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("✅ MongoDB Connected Successfully");
 
@@ -61,8 +60,6 @@ mongoose
     });
   })
   .catch((err) => {
-    console.error("❌ MongoDB Connection Error:");
-    console.error(err.message);
-
-    process.exit(1);
+    console.log("🔥 FULL ERROR BELOW:");
+    console.error(err);
   });
