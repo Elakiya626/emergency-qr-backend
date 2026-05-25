@@ -1,3 +1,12 @@
+process.on("uncaughtException", (err) => {
+  console.log("🔥 UNCAUGHT ERROR:");
+  console.error(err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log("🔥 UNHANDLED PROMISE ERROR:");
+  console.error(err);
+});
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -20,8 +29,13 @@ app.use("/uploads", express.static("uploads"));
 
 /* ---------------- MODELS ---------------- */
 
+console.log("Loading User model...");
 require("./models/User");
+console.log("User model OK");
+
+console.log("Loading Patient model...");
 require("./models/Patient");
+console.log("Patient model OK");
 
 console.log("✅ User & Patient models loaded");
 
